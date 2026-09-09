@@ -1,0 +1,34 @@
+{
+  "name": "com.SinergiaEducacao.eddie",
+  "version": "1.0.0",
+  "displayName": "Eddie - Interactive Character",
+  "description": "Eddie é um personagem 3D interativo com suporte a lip sync, fila de áudios com legenda/imagem e animações aleatórias. Ideal para experiências educacionais e de entretenimento.",
+  "unity": "2022.3",
+  "unityRelease": "0f1",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "keywords": [
+    "character",
+    "lipsync",
+    "audio",
+    "animation",
+    "interactive",
+    "eddie"
+  ],
+  "author": {
+    "name": "Sinergia Educação",
+    "email": "",
+    "url": ""
+  },
+  "samples": [
+    {
+      "displayName": "Basic Example",
+      "description": "Cena básica demonstrando o Eddie com UI de legenda e imagem configurados.",
+      "path": "Samples~/BasicExample"
+    }
+  ]
+}
