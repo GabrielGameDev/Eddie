@@ -1,7 +1,10 @@
 {
     "name": "Eddie",
     "rootNamespace": "Eddie",
-    "references": [],
+    "references": [
+        "Unity.TextMeshPro",
+        "Unity.ugui"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
