@@ -1,8 +1,9 @@
 # Eddie — Interactive Character
 
-**Versão:** 1.0.0 | **Unity:** 2022.3+ | **Autor:** Sinergia Educação
+**Versão:** 1.0.0 | **Unity:** 6.0.58+ | **Autor:** Sinergia Educação
 
 Eddie é um personagem 3D interativo para Unity com:
+
 - 🎙️ **Fila de áudios** com suporte a legenda e imagem sincronizados
 - 👄 **Lip sync em tempo real** via BlendShape
 - 🎲 **Animações e falas aleatórias** com intervalos configuráveis
@@ -12,7 +13,7 @@ Eddie é um personagem 3D interativo para Unity com:
 
 ## Requisitos
 
-- Unity **2022.3** ou superior
+- Unity **6.0.58** ou superior
 - **TextMeshPro** (instalado automaticamente pelo UPM)
 
 ---
@@ -64,27 +65,30 @@ Crie os ScriptableObjects de fala:
 Selecione o GameObject `Eddie` e configure os componentes:
 
 #### PlayAudios
-| Campo | Descrição |
-|---|---|
-| `Captions Text` | TMP_Text para legenda (pode ser nulo) |
-| `Monitor Image` | Image UI para imagem (pode ser nulo) |
-| `Allow Repeat` | Se marcado, Speeches já tocados repetem |
+
+| Campo           | Descrição                               |
+| --------------- | --------------------------------------- |
+| `Captions Text` | TMP_Text para legenda (pode ser nulo)   |
+| `Monitor Image` | Image UI para imagem (pode ser nulo)    |
+| `Allow Repeat`  | Se marcado, Speeches já tocados repetem |
 
 #### LipSyncController
-| Campo | Descrição |
-|---|---|
-| `Audio Source` | Auto-detectado se vazio |
-| `Skinned Mesh` | SkinnedMeshRenderer do rosto |
-| `Blend Shape Index` | Índice do BlendShape da boca (padrão: 0) |
+
+| Campo               | Descrição                                         |
+| ------------------- | ------------------------------------------------- |
+| `Audio Source`      | Auto-detectado se vazio                           |
+| `Skinned Mesh`      | SkinnedMeshRenderer do rosto                      |
+| `Blend Shape Index` | Índice do BlendShape da boca (padrão: 0)          |
 | `Volume Multiplier` | Amplificador do volume (ajuste conforme o modelo) |
 
 #### RandomAudio
-| Campo | Descrição |
-|---|---|
-| `Play Audios` | Referência ao componente PlayAudios |
-| `Speech Groups` | Grupos de falas temáticos |
-| `Min Interval` | Tempo mínimo entre falas (segundos) |
-| `Max Interval` | Tempo máximo entre falas (segundos) |
+
+| Campo           | Descrição                           |
+| --------------- | ----------------------------------- |
+| `Play Audios`   | Referência ao componente PlayAudios |
+| `Speech Groups` | Grupos de falas temáticos           |
+| `Min Interval`  | Tempo mínimo entre falas (segundos) |
+| `Max Interval`  | Tempo máximo entre falas (segundos) |
 
 ### 4. Configurar Speech Groups no RandomAudio
 
@@ -129,11 +133,11 @@ public class MinhaLogica : MonoBehaviour
 
 ### `Speech` (ScriptableObject)
 
-| Propriedade | Tipo | Descrição |
-|---|---|---|
+| Propriedade | Tipo        | Descrição          |
+| ----------- | ----------- | ------------------ |
 | `audioClip` | `AudioClip` | Áudio a reproduzir |
-| `text` | `string` | Legenda (opcional) |
-| `image` | `Sprite` | Imagem (opcional) |
+| `text`      | `string`    | Legenda (opcional) |
+| `image`     | `Sprite`    | Imagem (opcional)  |
 
 ---
 
@@ -141,28 +145,29 @@ public class MinhaLogica : MonoBehaviour
 
 #### Propriedades públicas
 
-| Propriedade | Tipo | Descrição |
-|---|---|---|
+| Propriedade    | Tipo       | Descrição                      |
+| -------------- | ---------- | ------------------------------ |
 | `captionsText` | `TMP_Text` | Referência ao texto de legenda |
-| `monitorImage` | `Image` | Referência à imagem do monitor |
-| `allowRepeat` | `bool` | Permite repetição de Speeches |
+| `monitorImage` | `Image`    | Referência à imagem do monitor |
+| `allowRepeat`  | `bool`     | Permite repetição de Speeches  |
 
 #### Métodos
 
-| Método | Descrição |
-|---|---|
-| `PlayOrEnqueue(Speech)` | Adiciona um Speech à fila |
-| `StopAndClearQueue()` | Para imediatamente e limpa a fila |
-| `ResetPlayedHistory()` | Limpa o histórico de falas reproduzidas |
+| Método                  | Descrição                               |
+| ----------------------- | --------------------------------------- |
+| `PlayOrEnqueue(Speech)` | Adiciona um Speech à fila               |
+| `StopAndClearQueue()`   | Para imediatamente e limpa a fila       |
+| `ResetPlayedHistory()`  | Limpa o histórico de falas reproduzidas |
 
 #### Eventos (UnityEvent)
 
-| Evento | Argumento | Quando dispara |
-|---|---|---|
-| `OnSpeechStarted` | `Speech` | Ao iniciar a reprodução de um Speech |
-| `OnSpeechFinished` | `Speech` | Ao terminar a reprodução de um Speech |
+| Evento             | Argumento | Quando dispara                        |
+| ------------------ | --------- | ------------------------------------- |
+| `OnSpeechStarted`  | `Speech`  | Ao iniciar a reprodução de um Speech  |
+| `OnSpeechFinished` | `Speech`  | Ao terminar a reprodução de um Speech |
 
 **Exemplo de uso dos eventos:**
+
 ```csharp
 playAudios.OnSpeechStarted.AddListener(speech => {
     Debug.Log($"Iniciando: {speech.name}");
@@ -177,14 +182,14 @@ playAudios.OnSpeechFinished.AddListener(speech => {
 
 ### `LipSyncController` (MonoBehaviour)
 
-| Propriedade | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `audioSource` | `AudioSource` | Auto | Fonte de áudio monitorada |
-| `skinnedMesh` | `SkinnedMeshRenderer` | — | Mesh com BlendShape da boca |
-| `blendShapeIndex` | `int` | `0` | Índice do BlendShape |
-| `volumeMultiplier` | `float` | `200` | Amplificador do volume |
-| `syncInterval` | `float` | `0.1` | Intervalo de atualização (s) |
-| `sampleCount` | `int` | `1024` | Amostras de áudio por leitura |
+| Propriedade        | Tipo                  | Padrão | Descrição                     |
+| ------------------ | --------------------- | ------ | ----------------------------- |
+| `audioSource`      | `AudioSource`         | Auto   | Fonte de áudio monitorada     |
+| `skinnedMesh`      | `SkinnedMeshRenderer` | —      | Mesh com BlendShape da boca   |
+| `blendShapeIndex`  | `int`                 | `0`    | Índice do BlendShape          |
+| `volumeMultiplier` | `float`               | `200`  | Amplificador do volume        |
+| `syncInterval`     | `float`               | `0.1`  | Intervalo de atualização (s)  |
+| `sampleCount`      | `int`                 | `1024` | Amostras de áudio por leitura |
 
 ---
 
@@ -192,19 +197,19 @@ playAudios.OnSpeechFinished.AddListener(speech => {
 
 #### Propriedades públicas
 
-| Propriedade | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `playAudios` | `PlayAudios` | — | Referência ao PlayAudios |
-| `speechGroups` | `SpeechGroup[]` | — | Grupos de falas |
-| `minInterval` | `float` | `30` | Intervalo mínimo (s) |
-| `maxInterval` | `float` | `150` | Intervalo máximo (s) |
+| Propriedade    | Tipo            | Padrão | Descrição                |
+| -------------- | --------------- | ------ | ------------------------ |
+| `playAudios`   | `PlayAudios`    | —      | Referência ao PlayAudios |
+| `speechGroups` | `SpeechGroup[]` | —      | Grupos de falas          |
+| `minInterval`  | `float`         | `30`   | Intervalo mínimo (s)     |
+| `maxInterval`  | `float`         | `150`  | Intervalo máximo (s)     |
 
 #### Métodos
 
-| Método | Descrição |
-|---|---|
-| `StartLoop()` | Inicia o loop de falas aleatórias |
-| `StopLoop()` | Para o loop |
+| Método            | Descrição                                 |
+| ----------------- | ----------------------------------------- |
+| `StartLoop()`     | Inicia o loop de falas aleatórias         |
+| `StopLoop()`      | Para o loop                               |
 | `PlayRandomNow()` | Reproduz um grupo aleatório imediatamente |
 
 ---
