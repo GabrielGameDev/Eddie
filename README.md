@@ -1,6 +1,6 @@
 # Eddie — Interactive Character
 
-**Versão:** 1.0.0 | **Unity:** 2022.3+ | **Autor:** Sinergia Educação
+**Versão:** 1.0.0 | **Unity:** 6.0.58+ | **Autor:** Sinergia Educação
 
 Eddie é um personagem 3D interativo para Unity com:
 - 🎙️ **Fila de áudios** com suporte a legenda e imagem sincronizados
@@ -12,7 +12,7 @@ Eddie é um personagem 3D interativo para Unity com:
 
 ## Requisitos
 
-- Unity **2022.3** ou superior
+- Unity **6.0.58** ou superior
 - **TextMeshPro** (instalado automaticamente pelo UPM)
 
 ---
